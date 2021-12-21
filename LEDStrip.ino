@@ -17,10 +17,21 @@ void setup()
 }
 
 void loop() {
-  // fill_solid( leds, NUM_LEDS, CRGB( 10, 20, 10));
-  FastLED.show();
-  delay(1000);
+
+  // delay(1000);
   // leds[0] = CRGB(255,0,0);
+  // caliberate();
+  glow(127, 0, 0);
+  // delay(1000);
+  // for(int i = 0; i <= 6; i++)
+  //     leds[i] = CRGB(0, 0, 0);
+  // FastLED.clear();
+  // FastLED.show();
+  // delay(1000);
+}
+
+void caliberate()
+{
   leds[0] = CRGB::Red;
   FastLED.show();
   delay(100);
@@ -41,10 +52,21 @@ void loop() {
   delay(100);
   leds[6] = CRGB(0,0,0);
   FastLED.show();
-  delay(1000);
-  // for(int i = 0; i <= 6; i++)
-  //     leds[i] = CRGB(0, 0, 0);
-  FastLED.clear();
-  FastLED.show();
-  delay(1000);
+}
+
+void glow(int r, int g, int b){
+  for (int i=0; i < 64; i++)
+  {
+    FastLED.setBrightness(i);
+    fill_solid( leds, NUM_LEDS, CRGB( r, g, b));
+    FastLED.show();
+    delay(40);
+  }
+  for (int i=64; i > 0; i--)
+  {
+    FastLED.setBrightness(i);
+    fill_solid( leds, NUM_LEDS, CRGB( r, g, b));
+    FastLED.show();
+    delay(40);
+  }
 }
