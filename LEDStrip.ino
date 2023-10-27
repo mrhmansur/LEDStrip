@@ -1,6 +1,6 @@
 #include "FastLED.h"
 
-#define NUM_LEDS 60
+#define NUM_LEDS 10
 #define DATA_PIN 6
 #define MAX_POWER_MILLIAMPS 500
 #define LED_TYPE WS2812B
@@ -60,13 +60,13 @@ void glow(int r, int g, int b){
     FastLED.setBrightness(i);
     fill_solid( leds, NUM_LEDS, CRGB( r, g, b));
     FastLED.show();
-    delay(40);
+    delay(20);
   }
   for (int i=64; i > 0; i--)
   {
     FastLED.setBrightness(i);
     fill_solid( leds, NUM_LEDS, CRGB( r, g, b));
     FastLED.show();
-    delay(40);
+    delay(60);
   }
 }
